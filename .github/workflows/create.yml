@@ -9,4 +9,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run create-astro script
-        run: bun create astro@latest -- --template blog
+        run: npm create astro@latest -- --template blog
