@@ -1,0 +1,12 @@
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  create-astro:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run create-astro script
+        run: bun create astro@latest -- --template blog
