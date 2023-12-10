@@ -1,0 +1,33 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<header>
+    <h2>
+        <a href="/">nick
+            <br />
+            white
+        </a>
+        <br />
+        <a href="/blog">
+            blog
+        </a>
+    </h2>
+</header>
+<style>
+header {
+    background: var(--background);
+    margin: 0;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(var(--splash), 5%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: auto;
+}
+h2 {
+    margin: 0;
+    font-size: 1em;
+}
+</style>

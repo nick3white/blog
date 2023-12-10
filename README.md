@@ -1,1 +1,1 @@
-# blog
+Welcome to my web log!</marquee>
