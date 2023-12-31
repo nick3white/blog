@@ -1,132 +1,83 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-
+.four-o-four {
+  font-size: 50px;
+}
 :root {
-  --background: #333;
-  --foreground: #ccc;
-  --splash: 177, 177, 233;
-  --splash-color: rgb(177, 177, 233);
+  --star: #333;
+  --circle: #ccc;
+  --bg-color: 37, 37, 37;
+  --fg-color: 218, 218, 218;
+  --accent: 136, 58, 234;
+  --accent-light: 224, 204, 250;
+  --accent-dark: 49, 10, 101;
+  --accent-gradient: linear-gradient(
+    45deg,
+    rgb(var(--accent)),
+    rgb(var(--accent-light)) 30%,
+    white 60%
+  );
+}
+
+@font-face {
+  font-family: "aurulent";
+  src: url("/blog/AurulentSansMNerdFontMono-Regular.woff2");
+}
+
+html {
+  background: rgb(var(--bg-color));
 }
 body {
-  font-family: "Ubuntu", monospace;
   margin: 0;
   padding: 0;
-  background: var(--background);
-  color: var(--foreground);
-  font-size: 20px;
-  line-height: 1.7;
 }
-main {
-  width: 720px;
-  max-width: calc(100% - 2em);
-  margin: auto;
-  padding: 3em 1em;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0 0 0.5rem 0;
-  line-height: 1.2;
+body,
+* {
+  font-family: "aurulent";
+  box-sizing: border-box;
 }
 h1 {
-  font-size: 3.052em;
-}
-h2 {
-  font-size: 2.441em;
-}
-h3 {
-  font-size: 1.953em;
-}
-h4 {
-  font-size: 1.563em;
-}
-h5 {
-  font-size: 1.25em;
-}
-strong,
-b {
+  font-size: 4rem;
   font-weight: 700;
-}
-a {
-  transition: 100ms;
-  text-decoration: none;
-  color: rgba(var(--splash), 0.66);
-}
-a:hover {
-  color: rgba(var(--splash), 1);
-}
-p {
+  line-height: 1;
+  text-align: center;
   margin-bottom: 1em;
 }
-.prose p {
-  margin-bottom: 2em;
+article,
+.link-card {
+  border: 1px solid rgba(var(--fg-color), 0.33);
+  padding: 33px;
 }
-textarea {
-  width: 100%;
-  font-size: 16px;
-}
-input {
-  font-size: 16px;
-}
-table {
-  width: 100%;
-}
-img {
+.prose img {
   max-width: 100%;
-  height: auto;
-  border-radius: 8px;
 }
-code {
-  padding: 2px 5px;
-  background-color: rgb(var(--gray-light));
-  border-radius: 2px;
+a {
+  color: rgb(var(--fg-color));
+  line-height: 1rem;
+  text-decoration: none;
 }
-pre {
-  padding: 1.5em;
-  border-radius: 8px;
-}
-pre > code {
-  all: unset;
-}
-blockquote {
-  border-left: 4px solid var(--accent);
-  padding: 0 0 0 20px;
-  margin: 0px;
-  font-size: 1.333em;
-}
-hr {
-  border: none;
-  border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 720px) {
-  body {
-    font-size: 18px;
-  }
-  main {
-    padding: 1em;
-  }
+a:not(.no-lines) {
+  background: linear-gradient(
+      to right,
+      rgba(var(--fg-color), 0.5),
+      rgba(var(--fg-color), 0.5)
+    ),
+    linear-gradient(
+      to right,
+      rgba(var(--fg-color), 1),
+      rgba(var(--fg-color), 1)
+    );
+  background-size:
+    100% 0.1rem,
+    0 0.1rem;
+  background-position:
+    100% 100%,
+    0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 300ms;
 }
 
-.sr-only {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-  clip: rect(1px 1px 1px 1px);
-  /* maybe deprecated but we need to support legacy browsers */
-  clip: rect(1px, 1px, 1px, 1px);
-  /* modern browsers, clip-path works inwards from each corner */
-  clip-path: inset(50%);
-  /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
-  white-space: nowrap;
+a:hover:not(.no-lines),
+a:focus:not(.no-lines) {
+  background-size:
+    0 0.1rem,
+    100% 0.1rem;
 }

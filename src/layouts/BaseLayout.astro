@@ -1,0 +1,108 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Card from '../components/Card.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+const notes = (await getCollection('notes')).filter(f => {
+console.log(f.data.title.valueOf())
+console.log(f.data.draft)
+  return !f.data.draft || !f.data.draft.valueOf()
+ } ).sort(
+  
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
+		<style>
+	 	main {
+	 	  width: 960px;
+			padding-block: 10vh;
+			margin: auto;
+			width: 800px;
+			max-width: calc(100% - 2rem);
+			color: white;
+			font-size: 20px;
+			line-height: 1.6;
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			gap: 10px;
+		}
+
+		.link-card-flex {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: stretch;
+			gap: 10px;
+			padding: 0;
+		}
+		.link-card-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+			gap: 10px;
+			padding: 0;
+		}
+	 	section {
+	 	  gap: 10px;
+	 	}
+	 	header {
+	 		position: fixed;
+	 		height: 50px;
+			top: 10px;
+			left: 10px;
+			}
+			a {
+
+	 		height: 50px;
+			top: 10px;
+			left: 10px;
+			padding: 10px;
+	 		display: flex;
+	 		justify-content: center;
+	 		align-items: center;
+			border: 1px solid rgba(var(--fg-color),0.77);
+	 	}
+	 	header {
+
+  		background: linear-gradient(
+    		to right,
+    		rgba(var(--fg-color), 0.5),
+    		rgba(var(--fg-color), 0.5)
+    		);
+  		background-size:
+    		0 100%;
+  		background-position:
+    		0 100%;
+  		background-repeat: no-repeat;
+  		transition: background-size 300ms;
+	 	}
+		header:hover,
+		header:focus {
+  		background-size:
+    		100% 100%;
+		}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<a href="/blog/jdc" class="no-lines">{SITE_TITLE}</a>
+		</header>
+
+		<main>
+			<article>
+		  	<slot />
+			</article>
+			<section class="link-card-flex">
+				{ notes.map((note) => <Card slug={note.slug} note={note.data} /> )}
+			</section>
+		</main>
+	</body>
+</html>
