@@ -96,7 +96,7 @@ const notes = (await getCollection('notes')).filter(f => !f.data.draft).sort(
 
   <body>
     <header>
-      <a href="/" class="no-lines">{SITE_TITLE}</a>
+      <a href="/blog" class="no-lines">{SITE_TITLE}</a>
     </header>
     <Background id={Math.ceil(Math.random()) * 9} />
     <main>

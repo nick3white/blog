@@ -15,7 +15,7 @@ The user experience of a physical book is something we’ve been missing ever si
 
 That strong sense of place of a physical book is something digital interfaces lack. Every time you click a link, we are sent to a new space; taken as a whole, the frequency with which we traverse through these minor spaces drains them of a sense of place.
 
-![Colored Blocks in Chicago](/colored-blocks.webp)
+![Colored Blocks in Chicago](/blog/colored-blocks.webp)
 
 ## 1. Inhabitation.
 
@@ -35,7 +35,7 @@ The other element we designed with this in mind is the sidebar. On smaller scree
 
 We used a less-performant approach — which we felt was acceptable given the generally low resource requirements of the content. The page is, in fact, the full width of the screen, plus the width of the sidebar; the main content section increases to require the full width, pushing the sidebar off-screen; when the user chooses to show the sidebar, the main content section narrows, to require the full width of the screen minus the width of the sidebar. Only by literally moving the sidebar on and off the screen were we satisfied with the permanence and continuity of the element. (Again, these details will be described in another document.)
 
-![Western New York (aka West York)](/west-york.webp)
+![Western New York (aka West York)](/blog/west-york.webp)
 
 ## 2. Inhibition.
 
@@ -51,7 +51,7 @@ At its core, our approach was to simply employ a parallax effect on the maps. Pa
 
 The parallax effect has a lot of power. While it does, on its own, give a page a sense of depth and space, its status as known, but not entirely commonplace, makes it noteworthy, but probably not remarkable. And that was our intention — to make the user take note. The parallax effect catches the eye, drawing the user into the image. As vital companions to the content, we felt it was important to let the maps shine.
 
-![The Jolla](/jolla.webp)
+![The Jolla](/blog/jolla.webp)
 
 ## 3. Noise.
 

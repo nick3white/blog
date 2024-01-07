@@ -1,11 +1,11 @@
 ---
-
+const base = import.meta.env.BASE_URL
 interface Props {
   id: number;
 }
 console.log("id", Astro.props.id)
 
-const bg = '/bgs/bg-' + Astro.props.id + '.webp'
+const bg = base + '/bgs/bg-' + Astro.props.id + '.webp'
 ---
 <div class="bg-wrap">
 <div class="bg"  style={`background-image: url('${bg}')`} /><div class="overlay" />
