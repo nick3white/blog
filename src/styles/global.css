@@ -17,11 +17,15 @@
 @font-face {
   font-family: "aurulent";
   src: url("/blog/AurulentSansMNerdFontMono-Regular.woff2");
+  font-display: fallback;
 }
 
 html {
   font-family: "aurulent";
   /* background: rgb(var(--bg-color)); */
+}
+.prose {
+  font-weight: 200;
 }
 body {
   margin: 0;
@@ -50,6 +54,9 @@ article {
   border: 1px solid rgba(var(--fg-color), 0.33);
   padding: 33px;
 }
+.prose strong {
+  font-weight: 900;
+}
 .prose img {
   width: 100%;
 }
@@ -61,8 +68,9 @@ article {
   background: rgba(var(--fg-color), 0.11);
 }
 .prose code {
-  font-style: italic;
-  background: rgba(var(--fg-color), 0.22);
+  font-size: 0.85rem;
+  /* font-style: italic; */
+  /* background: rgba(var(--fg-color), 0.22); */
 }
 .prose small {
   font-size: 0.77rem;
