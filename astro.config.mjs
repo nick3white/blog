@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://nick3white.github.io/blog',
+  site: 'https://nick3white.github.io/',
+  base: '/blog',
   integrations: [mdx(), sitemap()],
 });
