@@ -1,6 +1,3 @@
-.four-o-four {
-  font-size: 50px;
-}
 :root {
   --star: #333;
   --circle: #ccc;
@@ -14,16 +11,17 @@
     rgb(var(--accent)),
     rgb(var(--accent-light)) 30%,
     white 60%
-  );
+    );
 }
 
 @font-face {
   font-family: "aurulent";
-  src: url("/blog/AurulentSansMNerdFontMono-Regular.woff2");
+  src: url("/AurulentSansMNerdFontMono-Regular.woff2");
 }
 
 html {
-  background: rgb(var(--bg-color));
+  font-family: "aurulent";
+  /* background: rgb(var(--bg-color)); */
 }
 body {
   margin: 0;
@@ -31,8 +29,15 @@ body {
 }
 body,
 * {
-  font-family: "aurulent";
   box-sizing: border-box;
+}
+main, header {
+  position: relative;
+  z-index: 1;
+}
+article, .link-card  {
+  background: rgb(var(--bg-color));
+color: rgb(var(--fg-color));
 }
 h1 {
   font-size: 4rem;
@@ -41,14 +46,28 @@ h1 {
   text-align: center;
   margin-bottom: 1em;
 }
-article,
-.link-card {
+article {
   border: 1px solid rgba(var(--fg-color), 0.33);
   padding: 33px;
 }
 .prose img {
-  max-width: 100%;
+  width: 100%;
 }
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  background: rgba(var(--fg-color), 0.11);
+}
+.prose code {
+  font-style: italic;
+  background: rgba(var(--fg-color), 0.22);
+}
+.prose small {
+  font-size: 0.77rem;
+}
+
 a {
   color: rgb(var(--fg-color));
   line-height: 1rem;
@@ -56,14 +75,14 @@ a {
 }
 a:not(.no-lines) {
   background: linear-gradient(
-      to right,
-      rgba(var(--fg-color), 0.5),
-      rgba(var(--fg-color), 0.5)
+    to right,
+    rgba(var(--fg-color), 0.5),
+    rgba(var(--fg-color), 0.5)
     ),
     linear-gradient(
-      to right,
-      rgba(var(--fg-color), 1),
-      rgba(var(--fg-color), 1)
+    to right,
+    rgba(var(--fg-color), 1),
+    rgba(var(--fg-color), 1)
     );
   background-size:
     100% 0.1rem,
@@ -80,4 +99,32 @@ a:focus:not(.no-lines) {
   background-size:
     0 0.1rem,
     100% 0.1rem;
+}
+header, .link-card {
+  border: 1px solid rgba(var(--fg-color), 0.11);
+  transition:  333ms;
+}
+
+
+header:hover , .link-card:hover ,
+header:focus , .link-card:focus  {
+  border: 1px solid rgba(var(--fg-color),0.77);
+}
+header a, .link-card a {
+
+  background: linear-gradient(
+    to right,
+    rgba(var(--fg-color), 0.11),
+    rgba(var(--fg-color), 0.11)
+    );
+  background-size:
+    0 100%;
+  background-position:
+    0 100%;
+  background-repeat: no-repeat;
+  transition:  333ms;
+}
+header:hover a, .link-card:hover a,
+header:focus a, .link-card:focus a {
+  background-size: 100% 100%;
 }

@@ -1,0 +1,42 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+export async function getStaticPaths() {
+	const notes = await getCollection('notes');
+	return notes.map((note) => ({
+		params: { slug: note.slug },
+		props: note,
+	}));
+}
+
+type Props = CollectionEntry<'notes'>;
+
+const post = Astro.props;
+const { title, pubDate, heroImage } = Astro.props.data
+const { Content } = await post.render();
+---
+
+<BaseLayout>
+		<div class="prose">
+			<div class="title">
+				<div class="date">
+					<FormattedDate date={pubDate} />
+					<!-- { -->
+					<!-- updatedDate && ( -->
+					<!-- 	<div class="last-updated-on"> -->
+					<!-- 		Last updated on <FormattedDate date={updatedDate} /> -->
+					<!-- 	</div> -->
+					<!-- ) -->
+					<!-- } -->
+				</div>
+				<h1>{title}</h1>
+				<hr />
+			</div>
+				<div class="hero-image">
+					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
+				</div>
+			<Content />
+		</div>
+</BaseLayout>

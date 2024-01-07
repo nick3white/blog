@@ -1,0 +1,80 @@
+:root {
+  --star: #333;
+  --circle: #ccc;
+  --bg-color: 37, 37, 37;
+  --fg-color: 218, 218, 218;
+  --accent: 136, 58, 234;
+  --accent-light: 224, 204, 250;
+  --accent-dark: 49, 10, 101;
+  --accent-gradient: linear-gradient(
+    45deg,
+    rgb(var(--accent)),
+    rgb(var(--accent-light)) 30%,
+    white 60%
+  );
+}
+
+@font-face {
+  font-family: "aurulent";
+  src: url("/AurulentSansMNerdFontMono-Regular.woff2");
+}
+
+html {
+  font-family: "aurulent";
+  background: rgb(var(--bg-color));
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+body,
+* {
+  box-sizing: border-box;
+}
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  margin-bottom: 1em;
+}
+article,
+.link-card {
+  border: 1px solid rgba(var(--fg-color), 0.33);
+  padding: 33px;
+}
+.prose img {
+  max-width: 100%;
+}
+a {
+  color: rgb(var(--fg-color));
+  line-height: 1rem;
+  text-decoration: none;
+}
+a:not(.no-lines) {
+  background: linear-gradient(
+      to right,
+      rgba(var(--fg-color), 0.5),
+      rgba(var(--fg-color), 0.5)
+    ),
+    linear-gradient(
+      to right,
+      rgba(var(--fg-color), 1),
+      rgba(var(--fg-color), 1)
+    );
+  background-size:
+    100% 0.1rem,
+    0 0.1rem;
+  background-position:
+    100% 100%,
+    0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 300ms;
+}
+
+a:hover:not(.no-lines),
+a:focus:not(.no-lines) {
+  background-size:
+    0 0.1rem,
+    100% 0.1rem;
+}

@@ -1,0 +1,42 @@
+---
+
+interface Props {
+  id: number;
+}
+console.log("id", Astro.props.id)
+
+const bg = '/bgs/bg-' + Astro.props.id + '.webp'
+---
+<div class="bg-wrap">
+<div class="bg"  style={`background-image: url('${bg}')`} /><div class="overlay" />
+</div>
+
+
+<style>
+.bg-wrap {
+  position: relative;
+  z-index: 0;
+}
+  .bg {
+    /* background-image: url('/flowers.jpg'); */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .overlay {
+  background: rgba(var(--bg-color), 0.77);
+    backdrop-filter: blur(10px) saturate(180%);
+  }
+  .bg, .overlay {
+    overflow: hidden;
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    lefT: 0;
+    right: 0;
+    bottom: 0;
+
+  }
+</style>
